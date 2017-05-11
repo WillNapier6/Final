@@ -10,7 +10,7 @@ public class Input extends Applet implements keyListener{
         String input = console.next();
         int times = console.nextInt();
 
-        if (input.equals("alex")) {
+        if (input.equals("north")) {
             player.north(times);
         }
         else if (input.equals("south")) {
