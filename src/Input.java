@@ -5,7 +5,7 @@ import java.applet.*;
 /**
  * Created by Sawyer Cole on 5/10/2017.
  */
-public class Input extends Applet implements keyListener{
+public class Input {
     public static void getUserInput(Scanner console, Player player, GameBoard board) {
         String input = console.next();
         int times = console.nextInt();
@@ -39,28 +39,7 @@ public class Input extends Applet implements keyListener{
         }
     }
 
-    public void keyTyped(KeyEvent e, Player player) {
-        if(e.getKeyCode() == KeyEvent.VK_UP) {
-            player.up(1);
-        }
-        else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-            player.down(1);
-        }
-        else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            player.right(1);
-        }
-        else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-            player.right(1);
-        }
-    }
 
-    /*@Override
-    public void keyPressed(KeyEvent e) {
 
-    }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }*/
 }

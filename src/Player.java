@@ -1,8 +1,12 @@
 /**
  * Created by Sawyer Cole on 5/3/2017.
  */
+import java.applet.Applet;
 import java.awt.*;
-public class Player {
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Player extends Applet implements KeyListener {
     int hunger;
     private int x;
     private int y;
@@ -116,5 +120,31 @@ public class Player {
         else if (y <= 100) {
             north(1);
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_UP) {
+            up(1);
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+            down(1);
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            right(1);
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+            right(1);
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent keyEvent) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent keyEvent) {
+
     }
 }
