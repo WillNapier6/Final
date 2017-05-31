@@ -11,14 +11,7 @@ public class FinalMain {
 
 
     public static void main(String[] args) {
-        boolean playGame = true;
         GameBoard board = new GameBoard();
-        while (playGame) {
-
-
-
-        }
-
     }
     public FinalMain(){
 
