@@ -1,10 +1,8 @@
 /**
  * Created by Sawyer Cole on 5/3/2017.
  */
-import java.applet.Applet;
+
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class Player {
     int hunger;

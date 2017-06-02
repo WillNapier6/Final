@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class GameBoard extends JPanel implements ActionListener, KeyListener{
     DrawingPanel panel = new DrawingPanel(1000, 1000);
+    JTextField keyL = new JTextField(80);
     Graphics pen = panel.getGraphics();
     Player player = new Player();
     Timer t = new Timer(5, this);
@@ -23,9 +24,9 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
     AllLocations allLocations = new AllLocations();
     public GameBoard () {
         t.start();
-        addKeyListener(this);
-        setFocusable(true);
-        setFocusTraversalKeysEnabled(true);
+        keyL.addKeyListener(this);
+        keyL.setFocusable(true);
+        keyL.setFocusTraversalKeysEnabled(true);
         drawBoard();
     }
     public void drawBoard () {
