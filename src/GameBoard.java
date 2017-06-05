@@ -9,12 +9,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Scanner;
 
-public class GameBoard extends JPanel implements ActionListener, KeyListener{
+public class GameBoard extends JFrame implements ActionListener, KeyListener{
     DrawingPanel panel = new DrawingPanel(1000, 1000);
-    JTextField keyL = new JTextField(80);
+    JFrame f = new JFrame();
     Graphics pen = panel.getGraphics();
     Player player = new Player();
-    Timer t = new Timer(5, this);
+    Timer t = new Timer(2, this);
     int velX, velY;
 
 
@@ -23,10 +23,14 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
 
     AllLocations allLocations = new AllLocations();
     public GameBoard () {
+        f.setSize(10, 10);
+        f.setVisible(true);
+        f.setTitle("Game Board");
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         t.start();
-        keyL.addKeyListener(this);
-        keyL.setFocusable(true);
-        keyL.setFocusTraversalKeysEnabled(true);
+        f.addKeyListener(this);
+        f.setFocusable(true);
+        f.setFocusTraversalKeysEnabled(true);
         drawBoard();
     }
     public void drawBoard () {
@@ -53,26 +57,37 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_UP) {
-            velX = 0;
             velY = 2;
         }
         else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-            velX = 0;
             velY = -2;
         }
         else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
             velX = 2;
-            velY = 0;
+
         }
         else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
             velX = -2;
-            velY = 0;
+
         }
     }
 
     @Override
-    public void keyReleased(KeyEvent keyEvent) {
+    public void keyReleased(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_UP) {
+            velY = 0;
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+            velY = 0;
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            velX = 0;
 
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+            velX = 0;
+
+        }
     }
 
     @Override
