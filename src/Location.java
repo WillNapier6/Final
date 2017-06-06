@@ -15,7 +15,7 @@ public class Location {
     }
 
     public void drawLocation(DrawingPanel panel, Graphics pen) {
-        background.drawBackground(panel);
+        background.drawBackground(panel, pen);
         writeLocation(pen);
         pen.drawRect(50, 50, 900, 900);
     }

@@ -5,14 +5,14 @@
 public class AllLocations {
     Location possibleLocations[] = new Location[] {
         new Location(-1, -1, new Background(1)),
-        new Location(0, -1, new Background(1)),
+        new Location(0, -1, new Background(2)),
         new Location(1, -1, new Background(1)),
         new Location(-1, 0, new Background(1)),
         new Location(0, 0, new Background(1)),
-        new Location(1, 0, new Background(1)),
+        new Location(1, 0, new Background(2)),
         new Location(-1, 1, new Background(1)),
-        new Location(0, 1, new Background(1)),
-        new Location(1, 1, new Background(1))
+        new Location(0, 1, new Background(2)),
+        new Location(1, 1, new Background(2))
     };
 
     public Location getLocation(Player player) {
