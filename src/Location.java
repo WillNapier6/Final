@@ -2,16 +2,20 @@
  * Created by Sawyer Cole on 5/3/2017.
  */
 import java.awt.*;
+import java.util.*;
+
 public class Location {
     int panelX;
     int panelY;
     int itemCount;
     Background background;
+    java.util.List<Object> items= new ArrayList<Object>();
 
     public Location(int panelX, int panelY, Background background) {
         this.panelX = panelX;
         this.panelY = panelY;
         this.background = background;
+
     }
 
     public void drawLocation(DrawingPanel panel, Graphics pen) {
