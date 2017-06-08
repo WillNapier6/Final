@@ -9,7 +9,14 @@ public abstract class Item extends GameObject {
     double size;
     boolean canPickUp;
     Coordinates coordinates;
-    public abstract void pickUp(Inventory inventory);
+    public abstract void pickUp(Inventory inventory, Location location);
+    public abstract void update();
+    public void makeInventory(int i) {
+        size = 0.8;
+        coordinates.x = 100 + 60 * i;
+        coordinates.y = 800;
+        update();
+    }
 
 
 }

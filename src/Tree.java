@@ -21,6 +21,10 @@ public class Tree extends Item{
 
         }
     }
+    public void update() {
+        width = (int) Math.round(super.size * 15);
+        height = (int) Math.round(super.size * 15);
+    }
 
 
     public void draw(Graphics pen) {
@@ -29,9 +33,10 @@ public class Tree extends Item{
         pen.setColor(Color.ORANGE);
         pen.fillRect((super.coordinates.x + width/2) - width/4, super.coordinates.y + height, width/2, height/2 );
     }
-    public void pickUp(Inventory inventory) {
+    public void pickUp(Inventory inventory, Location location) {
         System.out.println("You cant pick that up");
         inventory.inventory.add(this);
+        location.items.remove(this);
     }
 
 

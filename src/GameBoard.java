@@ -74,7 +74,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
 
         }
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            player.pickUpItem(inventory, allLocations.getLocation(player).items);
+            player.pickUpItem(inventory, allLocations.getLocation(player).items, allLocations.getLocation(player));
         }
     }
 
