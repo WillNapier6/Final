@@ -12,7 +12,7 @@ public class Background {
     Color backgroundColor;
     int amountOfTrees;
     boolean orginizeTrees;
-    ArrayList<Tree> trees = new ArrayList<Tree>();
+    //ArrayList<Tree> trees = new ArrayList<Tree>();
 
     public Background(int i) {
         if (i == 1) {
@@ -21,16 +21,14 @@ public class Background {
         else if (i == 2){
             setForest();
         }
-        for (int j = 0; j < amountOfTrees; j++) {
-            trees.add(new Tree());
-        }
+
 
     }
 
 
-    public void drawBackground (DrawingPanel panel, Graphics pen) {
+    public void drawBackground(DrawingPanel panel, Graphics pen) {
         panel.setBackground(backgroundColor);
-        drawTree(pen, amountOfTrees, 15, 15);
+        //drawTree(pen, amountOfTrees, 15, 15);
     }
     public void setForest() {
         this.backgroundColor = Color.LIGHT_GRAY;
@@ -44,13 +42,6 @@ public class Background {
         orginizeTrees = false;
     }
 
-    public void drawTree(Graphics pen, int amount, int width, int height) {
 
-
-        for (Tree tree : trees) {
-            tree.draw(pen);
-        }
-
-    }
 
 }

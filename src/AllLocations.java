@@ -4,15 +4,15 @@
 import java.util.*;
 public class AllLocations {
     Location possibleLocations[] = new Location[] {
-        new Location(-1, -1, new Background(choseLocation())),
-        new Location(0, -1, new Background(choseLocation())),
-        new Location(1, -1, new Background(choseLocation())),
-        new Location(-1, 0, new Background(choseLocation())),
-        new Location(0, 0, new Background(choseLocation())),
-        new Location(1, 0, new Background(choseLocation())),
-        new Location(-1, 1, new Background(choseLocation())),
-        new Location(0, 1, new Background(choseLocation())),
-        new Location(1, 1, new Background(choseLocation()))
+        new Location(-1, -1, choseLocation()),
+        new Location(0, -1, choseLocation()),
+        new Location(1, -1, choseLocation()),
+        new Location(-1, 0, choseLocation()),
+        new Location(0, 0, choseLocation()),
+        new Location(1, 0, choseLocation()),
+        new Location(-1, 1, choseLocation()),
+        new Location(0, 1, choseLocation()),
+        new Location(1, 1, choseLocation())
     };
 
     public Location getLocation(Player player) {

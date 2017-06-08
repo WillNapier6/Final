@@ -3,29 +3,29 @@
  */
 
 import java.awt.*;
+import java.util.ArrayList;
 
-public class Player {
+public class Player extends GameObject{
     int hunger;
-    private int x;
-    private int y;
+    private Coordinates coordinates;
+
     private int panelX;
     private int panelY;
     int width = 10;
     int height = 30;
-    public void drawPlayer(Graphics pen) {
+    public void draw(Graphics pen) {
         pen.setColor(Color.PINK);
-        pen.fillRect(this.x, this.y, width, height);
+        pen.fillRect(coordinates.x, coordinates.y, width, height);
         pen.setColor(Color.LIGHT_GRAY);
         pen.drawString("X: " + (getX() - 500) + " Y: " + (getY() - 500) * -1, 20, 50);
     }
     public void clearPlayer(Graphics pen, AllLocations allLocations, Player player) {
         pen.setColor((((allLocations.getLocation(player)).background).backgroundColor));
-        pen.fillRect(this.x, this.y, width, height);
+        pen.fillRect(coordinates.x, coordinates.y, width, height);
     }
 
     public Player() {
-        this.x = 500;
-        this.y = 500;
+        coordinates = new Coordinates(500, 500);
         panelX = 0;
         panelY = 0;
     }
@@ -88,13 +88,13 @@ public class Player {
         setPanelY(getPanelY() + x);
     }
     public int getX(){
-        return this.x;
+        return coordinates.x;
     }
     public int getY(){
-        return this.y;
+        return coordinates.y;
     }
     public void setX(int x) {
-        this.x = x;
+        coordinates.x = x;
         if(x >= 900) {
             east(1);
         }
@@ -111,12 +111,34 @@ public class Player {
 
 
     public void setY(int y) {
-        this.y = y;
+        coordinates.y = y;
         if(y >= 900) {
             south(1);
         }
         else if (y <= 100) {
             north(1);
+        }
+    }
+    public void pickUpItem(ArrayList<Item> items) {
+
+        Item pickUpItem = null;
+        boolean itemToPickUp = false;
+        double distance = 30000;
+        for (Item item: items) {
+            double distanceI = item.coordinates.getDistance(getX(), getY());
+            if (distanceI < distance ) {
+                distance = distanceI;
+                if (distance <= 50 && item.canPickUp) {
+                    pickUpItem = item;
+                    itemToPickUp = true;
+                }
+            }
+        }
+        if (itemToPickUp) {
+            pickUpItem.pickUp();
+        }
+        else {
+            System.out.println("Nothing to pick up");
         }
     }
 

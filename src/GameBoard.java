@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameBoard extends JFrame implements ActionListener, KeyListener{
@@ -35,7 +36,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     }
     public void drawBoard () {
         Location location = allLocations.getLocation(player);
-        player.drawPlayer(pen);
+        player.draw(pen);
         location.drawLocation(panel, pen);
 
     }
@@ -69,6 +70,9 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
             velX = -2;
 
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            player.pickUpItem(allLocations.getLocation(player).items);
         }
     }
 
