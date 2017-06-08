@@ -15,7 +15,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     JFrame f = new JFrame();
     Graphics pen = panel.getGraphics();
     Player player = new Player();
-    Inventory inventory = new Inventory();
+    Inventory inventory = new Inventory(10);
     Timer t = new Timer(2, this);
     int velX, velY;
 

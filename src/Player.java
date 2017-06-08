@@ -134,7 +134,16 @@ public class Player extends GameObject{
             }
         }
         if (itemToPickUp) {
-            pickUpItem.pickUp(inventory, location);
+            inventory.numberOfItems++;
+            if(inventory.numberOfItems > inventory.inventory.length) {
+                System.out.println("Inventory is full");
+            }
+            else {
+                pickUpItem.pickUp(inventory, location);
+            }
+
+
+
         }
         else {
             System.out.println("Nothing to pick up");

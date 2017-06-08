@@ -11,9 +11,9 @@ public abstract class Item extends GameObject {
     Coordinates coordinates;
     public abstract void pickUp(Inventory inventory, Location location);
     public abstract void update();
-    public void makeInventory(int i) {
+    public void setSizeInventory(int i) {
         size = 0.8;
-        coordinates.x = 100 + 60 * i;
+        coordinates.x = 100 + 30 * i;
         coordinates.y = 800;
         update();
     }

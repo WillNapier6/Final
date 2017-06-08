@@ -35,7 +35,8 @@ public class Tree extends Item{
     }
     public void pickUp(Inventory inventory, Location location) {
         System.out.println("You cant pick that up");
-        inventory.inventory.add(this);
+        inventory.inventory[inventory.numberOfItems] = this;
+
         location.items.remove(this);
     }
 
