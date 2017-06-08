@@ -119,8 +119,7 @@ public class Player extends GameObject{
             north(1);
         }
     }
-    public void pickUpItem(ArrayList<Item> items) {
-
+    public void pickUpItem(Inventory inventory, ArrayList<Item> items) {
         Item pickUpItem = null;
         boolean itemToPickUp = false;
         double distance = 30000;
@@ -135,7 +134,7 @@ public class Player extends GameObject{
             }
         }
         if (itemToPickUp) {
-            pickUpItem.pickUp();
+            pickUpItem.pickUp(inventory);
         }
         else {
             System.out.println("Nothing to pick up");

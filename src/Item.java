@@ -6,9 +6,10 @@ import java.awt.*;
 public abstract class Item extends GameObject {
     int nourishment;
     int value;
+    double size;
     boolean canPickUp;
     Coordinates coordinates;
-    public abstract void pickUp();
+    public abstract void pickUp(Inventory inventory);
 
 
 }

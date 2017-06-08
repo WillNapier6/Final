@@ -38,7 +38,7 @@ public class Location {
     }
     public void addTrees (int amount) {
         for (int i = 0; i < amount; i++) {
-            items.add(new Tree());
+            items.add(new Tree(1));
         }
     }
 

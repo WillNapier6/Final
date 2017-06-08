@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class Tree extends Item{
     int width;
     int height;
-    public Tree() {
+    public Tree(double size) {
         super.coordinates = new Coordinates((int) (Math.round(Math.random() * 900)), (int) (Math.round(Math.random() * 900)));
-
+        super.size = size;
         super.canPickUp = true;
-        width = 15;
-        height = 25;
+        width = (int) Math.round(super.size * 15);
+        height = (int) Math.round(super.size * 30);
     }
 
 
@@ -29,8 +29,9 @@ public class Tree extends Item{
         pen.setColor(Color.ORANGE);
         pen.fillRect((super.coordinates.x + width/2) - width/4, super.coordinates.y + height, width/2, height/2 );
     }
-    public void pickUp() {
+    public void pickUp(Inventory inventory) {
         System.out.println("You cant pick that up");
+        inventory.inventory.add(this);
     }
 
 

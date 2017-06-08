@@ -15,6 +15,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     JFrame f = new JFrame();
     Graphics pen = panel.getGraphics();
     Player player = new Player();
+    Inventory inventory = new Inventory();
     Timer t = new Timer(2, this);
     int velX, velY;
 
@@ -37,6 +38,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     public void drawBoard () {
         Location location = allLocations.getLocation(player);
         player.draw(pen);
+        inventory.draw(pen);
         location.drawLocation(panel, pen);
 
     }
@@ -72,7 +74,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
 
         }
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            player.pickUpItem(allLocations.getLocation(player).items);
+            player.pickUpItem(inventory, allLocations.getLocation(player).items);
         }
     }
 
