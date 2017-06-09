@@ -7,21 +7,38 @@ import java.util.ArrayList;
 public class Inventory {
     int size;
     int numberOfItems;
-    Item[] inventory;
+    InventorySlot[] inventory;
     public void draw(Graphics pen){
-
-        for (int j = 0; j < inventory.length; j++) {
-            pen.setColor(Color.GRAY);
-            pen.fillRect(100 + 30 * j, 800, 20, 20);
-        }
-        for (int i = 0; i < numberOfItems; i++) {
-            inventory[i].setSizeInventory(i);
-            inventory[i].draw(pen);
+        int i = 0;
+        for (InventorySlot inventorySlot: inventory) {
+            inventorySlot.draw(pen, i);
+            i++;
         }
     }
     public Inventory(int size) {
         this.size = size;
-        numberOfItems = 0;
-        inventory = new Item[size];
+        inventory = new InventorySlot[size];
+        for (int i = 0; i < inventory.length; i++) {
+            inventory[i] = new InventorySlot();
+        }
+    }
+    public void add(Item item) {
+        boolean didAdd = false;
+        for(int i = 0; i < inventory.length && !didAdd; i++) {
+            didAdd = inventory[i].add(item);
+        }
+        if (!didAdd) {
+            System.out.println("Inventory full");
+        }
+    }
+    public int getSelectedSlot() {
+        int i = 0;
+        for (InventorySlot slot: inventory) {
+            if(slot.isSelected) {
+                return i;
+            }
+            i++;
+        }
+        return 0;
     }
 }

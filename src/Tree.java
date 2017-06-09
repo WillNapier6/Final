@@ -5,14 +5,16 @@ import java.util.ArrayList;
  * Created by Sawyer Cole on 6/5/2017.
  */
 public class Tree extends Item{
+
     int width;
     int height;
-    public Tree(double size) {
-        super.coordinates = new Coordinates((int) (Math.round(Math.random() * 900)), (int) (Math.round(Math.random() * 900)));
+    public Tree(double size, int x, int y) {
+        super.coordinates = new Coordinates(x, y);
         super.size = size;
         super.canPickUp = true;
-        width = (int) Math.round(super.size * 15);
-        height = (int) Math.round(super.size * 30);
+        super.itemId = 1;
+        width = (int) Math.round(super.size * 16);
+        height = (int) Math.round(super.size * 32);
     }
 
 
@@ -22,8 +24,8 @@ public class Tree extends Item{
         }
     }
     public void update() {
-        width = (int) Math.round(super.size * 15);
-        height = (int) Math.round(super.size * 15);
+        width = (int) Math.round(super.size * 16);
+        height = (int) Math.round(super.size * 32);
     }
 
 
@@ -35,8 +37,7 @@ public class Tree extends Item{
     }
     public void pickUp(Inventory inventory, Location location) {
         System.out.println("You cant pick that up");
-        inventory.inventory[inventory.numberOfItems] = this;
-
+        inventory.add(this);
         location.items.remove(this);
     }
 

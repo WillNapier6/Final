@@ -31,19 +31,19 @@ public class Player extends GameObject{
     }
     public void north(int x) {
         addPanelY(x);
-        setY(880);
+        setY(900);
     }
     public void south(int x) {
         addPanelY(x * -1);
-        setY(120);
+        setY(100);
     }
     public void east(int x) {
         addPanelX(x);
-        setX(120);
+        setX(100);
     }
     public void west(int x) {
         addPanelX(x * -1);
-        setX(880);
+        setX(900);
     }
     public void up(int y) {
         addY(y);
@@ -95,10 +95,10 @@ public class Player extends GameObject{
     }
     public void setX(int x) {
         coordinates.x = x;
-        if(x >= 900) {
+        if(x >= 901) {
             east(1);
         }
-        else if (x <= 100) {
+        else if (x <= 99) {
             west(1);
         }
     }
@@ -112,10 +112,10 @@ public class Player extends GameObject{
 
     public void setY(int y) {
         coordinates.y = y;
-        if(y >= 900) {
+        if(y >= 901) {
             south(1);
         }
-        else if (y <= 100) {
+        else if (y <= 99) {
             north(1);
         }
     }
@@ -134,13 +134,10 @@ public class Player extends GameObject{
             }
         }
         if (itemToPickUp) {
-            inventory.numberOfItems++;
-            if(inventory.numberOfItems > inventory.inventory.length) {
-                System.out.println("Inventory is full");
-            }
-            else {
+
+
                 pickUpItem.pickUp(inventory, location);
-            }
+
 
 
 
@@ -148,6 +145,13 @@ public class Player extends GameObject{
         else {
             System.out.println("Nothing to pick up");
         }
+    }
+    public void dropItem (Inventory inventory, Location location) {
+        InventorySlot selectedSlot = inventory.inventory[inventory.getSelectedSlot()];
+
+        selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() - 1).setSizeGameBoard(coordinates);
+        location.items.add(selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() - 1));
+        selectedSlot.itemHolding.remove(selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() -1));
     }
 
 }

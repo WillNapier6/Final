@@ -10,6 +10,7 @@ public class Background {
     Color[] basicColors = {Color.BLUE, Color.CYAN, Color.RED};
     Color[] presetColors = {basicColors[(int) (Math.random() * 3)], };
     Color backgroundColor;
+    Color brown = new Color(153, 76, 0);
     int amountOfTrees;
     boolean orginizeTrees;
     //ArrayList<Tree> trees = new ArrayList<Tree>();
@@ -31,7 +32,7 @@ public class Background {
         //drawTree(pen, amountOfTrees, 15, 15);
     }
     public void setForest() {
-        this.backgroundColor = Color.LIGHT_GRAY;
+        this.backgroundColor = brown;
         amountOfTrees = 15;
         orginizeTrees = true;
     }

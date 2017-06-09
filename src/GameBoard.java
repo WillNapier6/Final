@@ -15,7 +15,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     JFrame f = new JFrame();
     Graphics pen = panel.getGraphics();
     Player player = new Player();
-    Inventory inventory = new Inventory(10);
+    Inventory inventory = new Inventory(5);
     Timer t = new Timer(2, this);
     int velX, velY;
 
@@ -75,6 +75,44 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         }
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             player.pickUpItem(inventory, allLocations.getLocation(player).items, allLocations.getLocation(player));
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_1) {
+            inventory.inventory[0].select();
+            inventory.inventory[1].unselect();
+            inventory.inventory[2].unselect();
+            inventory.inventory[3].unselect();
+            inventory.inventory[4].unselect();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_2) {
+            inventory.inventory[0].unselect();
+            inventory.inventory[1].select();
+            inventory.inventory[2].unselect();
+            inventory.inventory[3].unselect();
+            inventory.inventory[4].unselect();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_3) {
+            inventory.inventory[0].unselect();
+            inventory.inventory[1].unselect();
+            inventory.inventory[2].select();
+            inventory.inventory[3].unselect();
+            inventory.inventory[4].unselect();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_4) {
+            inventory.inventory[0].unselect();
+            inventory.inventory[1].unselect();
+            inventory.inventory[2].unselect();
+            inventory.inventory[3].select();
+            inventory.inventory[4].unselect();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_5) {
+            inventory.inventory[0].unselect();
+            inventory.inventory[1].unselect();
+            inventory.inventory[2].unselect();
+            inventory.inventory[3].unselect();
+            inventory.inventory[4].select();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_Q) {
+            player.dropItem(inventory, allLocations.getLocation(player));
         }
     }
 
