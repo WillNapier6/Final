@@ -9,6 +9,7 @@ public abstract class Item extends GameObject {
     int value;
     double size;
     boolean canPickUp;
+    boolean isEdible;
     Coordinates coordinates;
     public abstract void pickUp(Inventory inventory, Location location);
     public abstract void update();

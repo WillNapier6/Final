@@ -13,6 +13,7 @@ public class Coin extends Item {
         super.size = size;
         super.canPickUp = true;
         super.itemId = 2;
+        super.isEdible = false;
         width = (int) Math.round(super.size * 16);
         height = (int) Math.round(super.size * 16);
     }

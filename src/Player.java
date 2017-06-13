@@ -6,7 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Player extends GameObject{
-    int hunger;
+    private int hunger;
     private Coordinates coordinates;
 
     private int panelX;
@@ -28,6 +28,7 @@ public class Player extends GameObject{
         coordinates = new Coordinates(500, 500);
         panelX = 0;
         panelY = 0;
+        hunger = 10;
     }
     public void north(int x) {
         addPanelY(x);
@@ -138,9 +139,6 @@ public class Player extends GameObject{
 
                 pickUpItem.pickUp(inventory, location);
 
-
-
-
         }
         else {
             System.out.println("Nothing to pick up");
@@ -153,5 +151,28 @@ public class Player extends GameObject{
         location.items.add(selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() - 1));
         selectedSlot.itemHolding.remove(selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() -1));
     }
+    public void eatItem (Inventory inventory) {
+        InventorySlot selectedSlot = inventory.inventory[inventory.getSelectedSlot()];
+        Item item = selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() -1);
+        if (item.isEdible) {
+            addHunger(item.nourishment);
+            selectedSlot.itemHolding.remove(item);
+        }
+    }
 
+    public int getHunger() {
+        return hunger;
+    }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
+    }
+    public void addHunger(int i) {
+        if (getHunger() + i <= 10) {
+            setHunger(getHunger() + i);
+        }
+        else {
+            setHunger(10);
+        }
+    }
 }

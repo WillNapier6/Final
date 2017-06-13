@@ -38,6 +38,7 @@ public class InventorySlot{
             return false;
         }
     }
+
     public void select() {
         isSelected = true;
     }

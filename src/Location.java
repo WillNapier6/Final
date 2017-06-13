@@ -18,10 +18,12 @@ public class Location {
         if (type == 1) {
             addTrees(4);
             addCoins(10);
+            addBerryBushes(5);
         }
         else if (type == 2) {
             addTrees(15);
             addCoins(5);
+            addBerryBushes(10);
         }
     }
 
@@ -47,6 +49,11 @@ public class Location {
     public void addCoins (int amount) {
         for (int i = 0; i < amount; i++) {
             items.add(new Coin(1, (int) (Math.round(Math.random() * 900)), (int) (Math.round(Math.random() * 900))));
+        }
+    }
+    public void addBerryBushes (int amount) {
+        for (int i = 0; i < amount; i++) {
+            items.add(new BerryBush(1, (int) (Math.round(Math.random() * 900)), (int) (Math.round(Math.random() * 900))));
         }
     }
 

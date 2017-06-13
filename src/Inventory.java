@@ -31,6 +31,10 @@ public class Inventory {
             System.out.println("Inventory full");
         }
     }
+    public  void remove(Item item) {
+        boolean didRemove = false;
+
+    }
     public int getSelectedSlot() {
         int i = 0;
         for (InventorySlot slot: inventory) {

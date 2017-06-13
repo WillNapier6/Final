@@ -13,6 +13,7 @@ public class Tree extends Item{
         super.size = size;
         super.canPickUp = true;
         super.itemId = 1;
+        super.isEdible = false;
         width = (int) Math.round(super.size * 16);
         height = (int) Math.round(super.size * 32);
     }

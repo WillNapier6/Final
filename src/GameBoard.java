@@ -16,7 +16,9 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     Graphics pen = panel.getGraphics();
     Player player = new Player();
     Inventory inventory = new Inventory(5);
+    HungerBar hungerBar = new HungerBar();
     Timer t = new Timer(2, this);
+    int gameTick = 0;
     int velX, velY;
 
 
@@ -39,6 +41,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         Location location = allLocations.getLocation(player);
         player.draw(pen);
         inventory.draw(pen);
+        hungerBar.draw(pen, player);
         location.drawLocation(panel, pen);
 
     }
@@ -114,6 +117,10 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         else if(e.getKeyCode() == KeyEvent.VK_Q) {
             player.dropItem(inventory, allLocations.getLocation(player));
         }
+        else if (e.getKeyCode() == KeyEvent.VK_E) {
+            player.eatItem(inventory);
+        }
+
     }
 
     @Override
@@ -139,6 +146,10 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         clearBoard();
         player.up(velY);
         player.right(velX);
+        if (gameTick % 200 == 0) {
+            player.setHunger(player.getHunger() - 1);
+        }
         drawBoard();
+        gameTick++;
     }
 }
