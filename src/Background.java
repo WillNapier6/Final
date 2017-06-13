@@ -7,10 +7,12 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Background {
-    Color[] basicColors = {Color.BLUE, Color.CYAN, Color.RED};
+    Color verLightGreen = new Color(209, 255, 209);
+    Color[] basicColors = {Color.BLUE, Color.CYAN, verLightGreen};
     Color[] presetColors = {basicColors[(int) (Math.random() * 3)], };
     Color backgroundColor;
     Color brown = new Color(153, 76, 0);
+
     int amountOfTrees;
     boolean orginizeTrees;
     //ArrayList<Tree> trees = new ArrayList<Tree>();

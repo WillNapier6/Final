@@ -17,6 +17,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     Player player = new Player();
     Inventory inventory = new Inventory(5);
     HungerBar hungerBar = new HungerBar();
+    HealthBar healthBar = new HealthBar();
     Timer t = new Timer(2, this);
     int gameTick = 0;
     int velX, velY;
@@ -35,6 +36,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         f.addKeyListener(this);
         f.setFocusable(true);
         f.setFocusTraversalKeysEnabled(true);
+
         drawBoard();
     }
     public void drawBoard () {
@@ -42,6 +44,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         player.draw(pen);
         inventory.draw(pen);
         hungerBar.draw(pen, player);
+        healthBar.draw(pen, player);
         location.drawLocation(panel, pen);
 
     }
@@ -146,8 +149,17 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         clearBoard();
         player.up(velY);
         player.right(velX);
-        if (gameTick % 200 == 0) {
+        if (gameTick % 200 == 0 && player.getHunger() != 0) {
             player.setHunger(player.getHunger() - 1);
+        }
+        if (gameTick % 200 == 0 && player.getHunger() <= 0) {
+            player.setHealth(player.getHealth() - 1);
+        }
+        if (gameTick % 200 == 0 && player.getHunger() == 10) {
+            player.setHealth(player.getHealth() + 1);
+        }
+        if (player.getHealth() == 0) {
+            System.out.println("GAME OVER");
         }
         drawBoard();
         gameTick++;

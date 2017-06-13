@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Player extends GameObject{
     private int hunger;
     private Coordinates coordinates;
-
+    private int health;
     private int panelX;
     private int panelY;
     int width = 10;
@@ -29,6 +29,7 @@ public class Player extends GameObject{
         panelX = 0;
         panelY = 0;
         hunger = 10;
+        health = 10;
     }
     public void north(int x) {
         addPanelY(x);
@@ -173,6 +174,22 @@ public class Player extends GameObject{
         }
         else {
             setHunger(10);
+        }
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        if (this.health <= 10 && health > this.health) {
+            this.health = health;
+        }
+        else if (health < this.health) {
+            this.health = health;
+        }
+        else {
+            this.health = 10;
         }
     }
 }
