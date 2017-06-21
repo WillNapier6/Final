@@ -18,12 +18,6 @@ public class Tree extends Item{
         height = (int) Math.round(super.size * 32);
     }
 
-
-    public void organizeTrees(ArrayList<Tree> trees) {
-        for (Tree tree: trees) {
-
-        }
-    }
     public void update() {
         width = (int) Math.round(super.size * 16);
         height = (int) Math.round(super.size * 32);

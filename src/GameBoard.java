@@ -11,34 +11,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameBoard extends JFrame implements ActionListener, KeyListener{
-    DrawingPanel panel = new DrawingPanel(1000, 1000);
-    JFrame f = new JFrame();
-    Graphics pen = panel.getGraphics();
-    Player player = new Player();
-    Inventory inventory = new Inventory(5);
-    HungerBar hungerBar = new HungerBar();
-    HealthBar healthBar = new HealthBar();
-    Timer t = new Timer(2, this);
-    int gameTick = 0;
-    int velX, velY;
 
+    //fields
+    DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
+    Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
+    Player player = new Player(); //creates the player
+    Inventory inventory = new Inventory(5); //begging inventory at bottom of the screen
+    HungerBar hungerBar = new HungerBar(); //Hunger Display
+    HealthBar healthBar = new HealthBar(); //Health Display
+    Timer t = new Timer(2, this); //Initializes game timer
+    int gameTick = 0; //records game time
+    int velX, velY; //velocity of the player
+    Input input = new Input(); //allows option of enabling console comands
+    AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
 
-    Scanner console = new Scanner(System.in);
-    Input input = new Input();
-
-    AllLocations allLocations = new AllLocations();
+    //constructor, starts  the timer and implements key listener.
     public GameBoard () {
-        f.setSize(10, 10);
-        f.setVisible(true);
-        f.setTitle("Game Board");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        panel.frame.addKeyListener(this);
+        panel.frame.setTitle("The Lousy Adventures Of Will Napkin");
         t.start();
-        f.addKeyListener(this);
-        f.setFocusable(true);
-        f.setFocusTraversalKeysEnabled(true);
-
         drawBoard();
     }
+
+    //draws board, each item
     public void drawBoard () {
         Location location = allLocations.getLocation(player);
         player.draw(pen);
@@ -46,21 +41,14 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         hungerBar.draw(pen, player);
         healthBar.draw(pen, player);
         location.drawLocation(panel, pen);
-
     }
     public void clearBoard() {
-
         panel.clear();
     }
 
-    public void sleep(int time) {
-        panel.sleep(time);
-    }
-
-
     @Override
     public void keyTyped(KeyEvent e) {
-
+        //unused, required implementation
     }
 
     @Override
@@ -123,12 +111,16 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         else if (e.getKeyCode() == KeyEvent.VK_E) {
             player.eatItem(inventory);
         }
+        else {
+            velX = 0;
+            velY = 0;
+        }
 
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_UP) {
+       if(e.getKeyCode() == KeyEvent.VK_UP) {
             velY = 0;
         }
         else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -144,18 +136,19 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         clearBoard();
         player.up(velY);
         player.right(velX);
-        if (gameTick % 200 == 0 && player.getHunger() != 0) {
+        if (gameTick % 2000 == 0 && player.getHunger() != 0) {
             player.setHunger(player.getHunger() - 1);
         }
-        if (gameTick % 200 == 0 && player.getHunger() <= 0) {
+        if (gameTick % 2000 == 0 && player.getHunger() <= 0) {
             player.setHealth(player.getHealth() - 1);
         }
-        if (gameTick % 200 == 0 && player.getHunger() == 10) {
+        if (gameTick % 2000 == 0 && player.getHunger() == 10) {
             player.setHealth(player.getHealth() + 1);
         }
         if (player.getHealth() == 0) {

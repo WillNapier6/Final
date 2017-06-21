@@ -5,9 +5,10 @@ import java.util.ArrayList;
  * Created by Sawyer Cole on 6/8/2017.
  */
 public class Coin extends Item {
-
+    //field
     int width;
     int height;
+    //constructs coin
     public Coin(double size, int x, int y) {
         super.coordinates = new Coordinates(x, y);
         super.size = size;
@@ -17,15 +18,6 @@ public class Coin extends Item {
         width = (int) Math.round(super.size * 16);
         height = (int) Math.round(super.size * 16);
     }
-
-
-
-    public void update() {
-        width = (int) Math.round(super.size * 16);
-        height = (int) Math.round(super.size * 16);
-    }
-
-
     public void draw(Graphics pen) {
         pen.setColor(Color.YELLOW);
         pen.fillOval(super.coordinates.x, super.coordinates.y,width, height);

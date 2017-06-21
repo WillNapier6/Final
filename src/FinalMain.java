@@ -13,9 +13,6 @@ public class FinalMain {
     public static void main(String[] args) {
         GameBoard board = new GameBoard();
     }
-    public FinalMain(){
-
-    }
 
 
 }

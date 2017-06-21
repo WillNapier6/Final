@@ -17,6 +17,7 @@ public class Berry extends Item{
         height = (int) Math.round(super.size * 32);
     }
 
+    //draws Berry
     public void draw(Graphics pen) {
         pen.setColor(Color.RED);
         pen.fillOval(super.coordinates.x + 5,super.coordinates.y + 5, 5, 5);
@@ -25,13 +26,10 @@ public class Berry extends Item{
         pen.fillOval(super.coordinates.x + 25,super.coordinates.y + 25, 5, 5);
     }
 
+    //pick up method
     public void pickUp(Inventory inventory, Location location) {
         inventory.add(this);
         location.items.remove(this);
     }
 
-
-    public void update() {
-
-    }
 }

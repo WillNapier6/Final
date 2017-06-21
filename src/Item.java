@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Created by Sawyer Cole on 5/3/2017.
  */
-public abstract class Item extends GameObject {
+public abstract class Item {
     int itemId;
     int nourishment;
     int value;
@@ -12,12 +12,12 @@ public abstract class Item extends GameObject {
     boolean isEdible;
     Coordinates coordinates;
     public abstract void pickUp(Inventory inventory, Location location);
-    public abstract void update();
+    public abstract void draw(Graphics pen);
+
     public void setSizeInventory(int i) {
         size = 1;
         coordinates.x = 100 + 60 * i + 12;
         coordinates.y = 805;
-        update();
     }
     public void setSizeGameBoard(Coordinates coordinates) {
         size = 1;

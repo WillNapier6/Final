@@ -9,8 +9,8 @@ public class BerryBush extends Item{
     int height;
     Color lime = new Color(51, 255, 51);
     boolean hasBerries = true;
-    //Random r = new Random();
 
+    //constructor
     public BerryBush(double size, int x, int y) {
         super.coordinates = new Coordinates(x, y);
         super.size = size;
@@ -20,6 +20,7 @@ public class BerryBush extends Item{
         width = (int) Math.round(super.size * 32);
         height = (int) Math.round(super.size * 32);
     }
+    //draw method, varys based on whether it has berries
     public void draw(Graphics pen) {
         pen.setColor(lime);
         pen.fillRect(super.coordinates.x, super.coordinates.y, width, height);
@@ -31,7 +32,7 @@ public class BerryBush extends Item{
             pen.fillOval(super.coordinates.x + 25,super.coordinates.y + 25, 5, 5);
         }
     }
-
+    //picks up berries of the bush
     public void pickUp(Inventory inventory, Location location) {
         if (hasBerries) {
             inventory.add(new Berry(1, 1, 1));
@@ -39,8 +40,4 @@ public class BerryBush extends Item{
         }
     }
 
-    public void update() {
-        width = (int) Math.round(super.size * 32);
-        height = (int) Math.round(super.size * 32);
-    }
 }

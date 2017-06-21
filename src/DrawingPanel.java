@@ -226,8 +226,8 @@ public final class DrawingPanel extends FileFilter
 
     // fields
     private int width, height;             // dimensions of window frame
-    private JFrame frame;                  // overall window frame
-    private JPanel panel;                  // overall drawing surface
+    JFrame frame;                  // overall window frame
+    JPanel panel;                  // overall drawing surface
     private ImagePanel imagePanel;         // real drawing surface
     private BufferedImage image;           // remembers drawing commands
     private Graphics2D g2;                 // graphics context for painting
