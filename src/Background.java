@@ -5,7 +5,13 @@ import sun.print.BackgroundLookupListener;
  */
 import java.awt.*;
 import java.util.ArrayList;
-
+/**
+ * Background.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class Background {
     //fields
     Color veryLightGreen = new Color(209, 255, 209);
@@ -15,7 +21,7 @@ public class Background {
     Color brown = new Color(153, 76, 0);
     int amountOfTrees;
 
-    //constructor chooses between 2 background presets
+    //constructor chooses between currently 2 background presets
     public Background(int i) {
         if (i == 1) {
             setBasicBackground();

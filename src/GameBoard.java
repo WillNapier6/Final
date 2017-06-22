@@ -9,7 +9,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * GameBoard.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class GameBoard extends JFrame implements ActionListener, KeyListener{
 
     //fields
@@ -42,6 +48,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         healthBar.draw(pen, player);
         location.drawLocation(panel, pen);
     }
+    //clears board
     public void clearBoard() {
         panel.clear();
     }
@@ -50,7 +57,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     public void keyTyped(KeyEvent e) {
         //unused, required implementation
     }
-
+    //KeyListener tracks arrow keys and action keys.
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_UP) {

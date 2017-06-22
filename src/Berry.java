@@ -3,9 +3,18 @@ import java.awt.*;
 /**
  * Created by Sawyer Cole on 6/9/2017.
  */
+/**
+ * Berry.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class Berry extends Item{
+    //fields
     int width;
     int height;
+    //constructor
     public Berry(double size, int x, int y) {
         super.coordinates = new Coordinates(x, y);
         super.size = size;

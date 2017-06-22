@@ -4,11 +4,20 @@ import java.util.ArrayList;
 /**
  * Created by Sawyer Cole on 6/8/2017.
  */
+/**
+ * InventorySlot.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class InventorySlot{
-    ArrayList<Item> itemHolding = new ArrayList<Item>();
+    //fields
+    ArrayList<Item> itemHolding = new ArrayList<Item>(); //holds up to 16 of a single type of item
     int holdingId;
     boolean isSelected = false;
 
+    //draws inventory slot
     public void draw(Graphics pen, int i) {
         pen.setColor(Color.LIGHT_GRAY);
         if (isSelected) {
@@ -23,6 +32,7 @@ public class InventorySlot{
             pen.drawString("" + itemHolding.size(), 100 + 60 * i, 810);
         }
     }
+    //adds an item to this inventory slot, returns true if successfully added otherwise returns false
     public boolean add(Item item) {
         if (itemHolding.size() <= 0) {
             itemHolding.add(item);
@@ -38,10 +48,12 @@ public class InventorySlot{
             return false;
         }
     }
-
+    //selects this inventory slot
     public void select() {
         isSelected = true;
     }
+
+    //unselects this inventory slot
     public void unselect() {
         isSelected = false;
     }

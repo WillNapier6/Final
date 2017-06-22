@@ -2,6 +2,13 @@
  * Created by Sawyer Cole on 5/9/2017.
  */
 import java.util.*;
+/**
+ * AllLocations.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class AllLocations {
     //fields
     //stores an array of the possible locations in the game

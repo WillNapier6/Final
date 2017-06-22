@@ -5,7 +5,15 @@ import java.applet.*;
 /**
  * Created by Sawyer Cole on 5/10/2017.
  */
+/**
+ * Input.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class Input {
+    //currently unused. Could be used to implement console commands
     public static void getUserInput(Scanner console, Player player, GameBoard board) {
         String input = console.next();
         int times = console.nextInt();

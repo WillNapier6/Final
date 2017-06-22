@@ -3,7 +3,15 @@ import java.awt.*;
 /**
  * Created by Sawyer Cole on 6/12/2017.
  */
+/**
+ * HealthBar.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class HealthBar {
+    //draws a visual representation of player health
     public void draw(Graphics pen, Player player) {
         Color lightPink = new Color(255, 204, 229);
         for (int i = 0; i < 5; i++) {

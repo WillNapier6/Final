@@ -4,7 +4,15 @@ import java.util.Random;
 /**
  * Created by Sawyer Cole on 6/9/2017.
  */
+/**
+ * BerryBush.java
+ * Assignment: Final Project
+ * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
+ *
+ * @version 5/9/17
+ */
 public class BerryBush extends Item{
+    //fields
     int width;
     int height;
     Color lime = new Color(51, 255, 51);
