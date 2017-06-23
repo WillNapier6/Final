@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @version 5/9/17
  */
+//The object that the user controls. Can do things to interact with the game board.
 public class Player {
     //fields
     private int hunger; //player's hunger, goes down over time, goes up when food is eaten

@@ -10,6 +10,7 @@ import java.util.*;
  *
  * @version 5/9/17
  */
+//A panel of the game board. Contains all the items in that panel, and draws them in it's draw method.
 public class Location {
     //fields
     int panelX;

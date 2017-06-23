@@ -10,6 +10,7 @@ import java.awt.*;
  *
  * @version 5/9/17
  */
+//The abstract template for Items. Contains draw and pick up methods.
 public abstract class Item {
     //fields
     int itemId; //each item type has a unique ID

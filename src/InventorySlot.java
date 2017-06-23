@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @version 5/9/17
  */
+//A single inventory unit. Stores up to 16 of a single item type.
 public class InventorySlot{
     //fields
     ArrayList<Item> itemHolding = new ArrayList<Item>(); //holds up to 16 of a single type of item

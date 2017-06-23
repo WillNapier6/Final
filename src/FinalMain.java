@@ -14,6 +14,7 @@ import java.applet.*;
  *
  * @version 5/9/17
  */
+//The main class. Contains a main method which creates a game board.
 public class FinalMain {
     public static void main(String[] args) {
         //creates a new game board

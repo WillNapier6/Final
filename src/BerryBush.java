@@ -11,6 +11,7 @@ import java.util.Random;
  *
  * @version 5/9/17
  */
+//A type of item. Contains berries which can be picked from the bush. When picked the bush remains
 public class BerryBush extends Item{
     //fields
     int width;

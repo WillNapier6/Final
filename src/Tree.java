@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @version 5/9/17
  */
+//A type of item. Doesn't do much right now. In the future you will not be able to walk through it.
 public class Tree extends Item{
     //fields
     int width;

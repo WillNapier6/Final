@@ -11,6 +11,7 @@ import java.util.ArrayList;
  *
  * @version 5/9/17
  */
+//Stores items which the player gather's. Is made up of inventory slots.
 public class Inventory {
     int size;
     int numberOfItems;

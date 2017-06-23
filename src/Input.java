@@ -12,6 +12,7 @@ import java.applet.*;
  *
  * @version 5/9/17
  */
+//currently unused. Was used for getting console commands.
 public class Input {
     //currently unused. Could be used to implement console commands
     public static void getUserInput(Scanner console, Player player, GameBoard board) {

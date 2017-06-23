@@ -16,6 +16,7 @@ import java.util.Scanner;
  *
  * @version 5/9/17
  */
+//The main class in which everything happens. Creates a bunch of game objects which all make the game function.
 public class GameBoard extends JFrame implements ActionListener, KeyListener{
 
     //fields

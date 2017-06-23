@@ -9,6 +9,7 @@ import java.util.*;
  *
  * @version 5/9/17
  */
+//Stores all of the locations that the player can go to. Contains a method that returns the location of the player.
 public class AllLocations {
     //fields
     //stores an array of the possible locations in the game

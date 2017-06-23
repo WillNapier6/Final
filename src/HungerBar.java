@@ -10,6 +10,7 @@ import java.awt.*;
  *
  * @version 5/9/17
  */
+//A visual representation of the player's hunger
 public class HungerBar{
     //draws a visual representation of player hunger
     public void draw(Graphics pen, Player player) {

@@ -10,6 +10,7 @@ import java.awt.*;
  *
  * @version 5/9/17
  */
+//A type of item. Can be eaten. When eaten it restores hunger to the player.
 public class Berry extends Item{
     //fields
     int width;

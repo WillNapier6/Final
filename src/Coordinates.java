@@ -8,6 +8,7 @@
  *
  * @version 5/9/17
  */
+//A variable that efficiently stores the location of an object on the screen.
 public class Coordinates {
     //fields
     int x;
