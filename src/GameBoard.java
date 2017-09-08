@@ -16,6 +16,7 @@ import java.util.Scanner;
  *
  * @version 5/9/17
  */
+//Is the main object that contains all the information and records player input and draws the game board accordingly.
 public class GameBoard extends JFrame implements ActionListener, KeyListener{
 
     //fields

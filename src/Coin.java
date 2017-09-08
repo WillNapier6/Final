@@ -11,6 +11,9 @@ import java.util.ArrayList;
  *
  * @version 5/9/17
  */
+/* Currently useless item. In the future it may be worth value which it can be sold for at the shop.
+
+*/
 public class Coin extends Item {
     //field
     int width;

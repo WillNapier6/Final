@@ -8,6 +8,7 @@
  *
  * @version 5/9/17
  */
+//Variable for efficiently storing the location of an item on the game board.
 public class Coordinates {
     //fields
     int x;

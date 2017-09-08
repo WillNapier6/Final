@@ -14,10 +14,12 @@ import java.applet.*;
  *
  * @version 5/9/17
  */
+//contains main method
 public class FinalMain {
     public static void main(String[] args) {
         //creates a new game board
         GameBoard board = new GameBoard();
+
     }
 
 

@@ -10,6 +10,9 @@ import java.awt.*;
  *
  * @version 5/9/17
  */
+/* A type of item. Is edible and restores hunger to the user when eaten.
+    Can only be obtained by picking a berry bush.
+ */
 public class Berry extends Item{
     //fields
     int width;

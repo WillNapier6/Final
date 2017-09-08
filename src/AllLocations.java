@@ -9,6 +9,7 @@ import java.util.*;
  *
  * @version 5/9/17
  */
+/*Stores an array of locations and contains methods to corralate the player with a location*/
 public class AllLocations {
     //fields
     //stores an array of the possible locations in the game
