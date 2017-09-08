@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @version 5/9/17
  */
+//Contains different background presets and instructions for drawing the background. Each location contains a background object.
 public class Background {
     //fields
     Color veryLightGreen = new Color(209, 255, 209);
