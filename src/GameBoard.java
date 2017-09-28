@@ -1,6 +1,8 @@
 /**
  * Created by Sawyer Cole on 5/4/2017.
  */
+import com.sun.xml.internal.ws.api.server.Adapter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -38,6 +40,10 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         panel.frame.setTitle("The Lousy Adventures Of Will Napkin");
         t.start();
         drawBoard();
+        panel.frame.setResizable(false);
+        panel.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        Toolkit tk = Toolkit.getDefaultToolkit();
+
     }
 
     //draws board, each item
@@ -113,7 +119,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
             inventory.inventory[3].unselect();
             inventory.inventory[4].select();
         }
-        else if(e.getKeyCode() == KeyEvent.VK_Q) {
+        else if(e.getKeyCode() == KeyEvent.VK_D) {
             player.dropItem(inventory, allLocations.getLocation(player));
         }
         else if (e.getKeyCode() == KeyEvent.VK_E) {
