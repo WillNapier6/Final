@@ -39,8 +39,6 @@ public class Location {
     public void drawLocation(DrawingPanel panel, Graphics pen) {
         background.drawBackground(panel, pen);
         writeLocation(pen);
-        pen.setColor(Color.MAGENTA);
-        pen.drawRect(50, 50, 900, 900);
         for (Item item: items) {
             item.draw(pen);
         }
