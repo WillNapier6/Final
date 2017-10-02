@@ -1,7 +1,10 @@
 /**
  * Created by Sawyer Cole on 5/4/2017.
  */
+import com.sun.xml.internal.ws.api.server.Adapter;
+
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +34,8 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     int velX, velY; //velocity of the player
     Input input = new Input(); //allows option of enabling console comands
     AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
+    Shop shop = new Shop();
+
 
     //constructor, starts  the timer and implements key listener.
     public GameBoard () {
@@ -38,6 +43,10 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         panel.frame.setTitle("The Lousy Adventures Of Will Napkin");
         t.start();
         drawBoard();
+        panel.frame.setResizable(false);
+        panel.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        Toolkit tk = Toolkit.getDefaultToolkit();
+
     }
 
     //draws board, each item
@@ -61,6 +70,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     //KeyListener tracks arrow keys and action keys.
     @Override
     public void keyPressed(KeyEvent e) {
+        boolean shopDisplayed = false;
         if(e.getKeyCode() == KeyEvent.VK_UP) {
             velY = 2;
         }
@@ -113,11 +123,21 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
             inventory.inventory[3].unselect();
             inventory.inventory[4].select();
         }
-        else if(e.getKeyCode() == KeyEvent.VK_Q) {
+        else if(e.getKeyCode() == KeyEvent.VK_D) {
             player.dropItem(inventory, allLocations.getLocation(player));
         }
         else if (e.getKeyCode() == KeyEvent.VK_E) {
             player.eatItem(inventory);
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_S) {
+            shop.displayShop(panel.frame);
+            t.stop();
+            panel.panel.setVisible(false);
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            shop.hideShop(panel.frame);
+            panel.panel.setVisible(true);
+            t.start();
         }
         else {
             velX = 0;
@@ -165,4 +185,6 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         drawBoard();
         gameTick++;
     }
+
+
 }
