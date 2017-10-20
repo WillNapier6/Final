@@ -13,10 +13,10 @@ import java.util.*;
 //A panel of the game board. Contains all the items in that panel, and draws them in it's draw method.
 public class Location {
     //fields
-    int panelX;
-    int panelY;
-    Background background;
-    ArrayList<Item> items = new ArrayList<Item>(); //stores the items in the location
+    public int panelX;
+    public int panelY;
+    public Background background;
+    public ArrayList<Item> items = new ArrayList<Item>(); //stores the items in the location
 
     //constructor, creates a new location panel at the given location with a given preset
     public Location(int panelX, int panelY, int type) {

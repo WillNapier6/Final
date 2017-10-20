@@ -23,18 +23,18 @@ import java.util.Scanner;
 public class GameBoard extends JPanel implements ActionListener, KeyListener{
 
     //fields
-    DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
-    Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
-    Player player = new Player(); //creates the player
-    Inventory inventory = new Inventory(5); //begging inventory at bottom of the screen
-    HungerBar hungerBar = new HungerBar(); //Hunger Display
-    HealthBar healthBar = new HealthBar(); //Health Display
-    Timer t = new Timer(2, this); //Initializes game timer
-    int gameTick = 0; //records game time
-    int velX, velY; //velocity of the player
-    Input input = new Input(); //allows option of enabling console comands
-    AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
-    Shop shop = new Shop();
+    private DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
+    private Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
+    private Player player = new Player(); //creates the player
+    private Inventory inventory = new Inventory(5); //begging inventory at bottom of the screen
+    private HungerBar hungerBar = new HungerBar(); //Hunger Display
+    private HealthBar healthBar = new HealthBar(); //Health Display
+    private Timer t = new Timer(2, this); //Initializes game timer
+    private int gameTick = 0; //records game time
+    private int velX, velY; //velocity of the player
+    //Input input = new Input(); //allows option of enabling console comands
+    private AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
+    private Shop shop = new Shop();
 
 
     //constructor, starts  the timer and implements key listener.

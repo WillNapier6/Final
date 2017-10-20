@@ -22,6 +22,7 @@ public class FinalMain extends JFrame{
         GameBoard board = new GameBoard();
 
     }
+
     public FinalMain() {
         add(new GameBoard());
         setVisible(true);
