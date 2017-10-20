@@ -4,6 +4,7 @@
 import javafx.event.Event;
 import javafx.scene.input.KeyEvent;
 
+import javax.swing.*;
 import java.awt.event.KeyListener;
 import java.util.*;
 import java.applet.*;
@@ -15,11 +16,18 @@ import java.applet.*;
  * @version 5/9/17
  */
 //contains main method
-public class FinalMain {
+public class FinalMain extends JFrame{
     public static void main(String[] args) {
         //creates a new game board
         GameBoard board = new GameBoard();
 
+    }
+    public FinalMain() {
+        add(new GameBoard());
+        setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setTitle("The Lousy Adventures of Will Napkin");
+        
     }
 
 

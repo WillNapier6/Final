@@ -11,7 +11,8 @@ public class Shop {
     JPanel shop = new JPanel();
     JPanel centerPanel = new JPanel();
     public Shop() {
-        shop.add(centerPanel);
+        shop.setLayout(new BorderLayout());
+        shop.add(centerPanel, BorderLayout.CENTER);
         centerPanel.add(buy);
         centerPanel.add(sell);
         shop.add(close, BorderLayout.SOUTH);
