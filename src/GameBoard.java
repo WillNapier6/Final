@@ -1,17 +1,14 @@
 /**
  * Created by Sawyer Cole on 5/4/2017.
  */
-import com.sun.xml.internal.ws.api.server.Adapter;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Scanner;
+
 /**
  * GameBoard.java
  * Assignment: Final Project
@@ -23,8 +20,8 @@ import java.util.Scanner;
 public class GameBoard extends JPanel implements ActionListener, KeyListener{
 
     //fields
-    private DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
-    private Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
+    //private DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
+    //private Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
     private Player player = new Player(); //creates the player
     private Inventory inventory = new Inventory(5); //begging inventory at bottom of the screen
     private HungerBar hungerBar = new HungerBar(); //Hunger Display
@@ -39,29 +36,33 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
 
     //constructor, starts  the timer and implements key listener.
     public GameBoard () {
-        panel.frame.addKeyListener(this);
-        panel.frame.setTitle("The Lousy Adventures Of Will Napkin");
+        addKeyListener(this);
+        setVisible(true);
+        setOpaque(true);
+        setBackground(Color.BLUE);
         t.start();
-        drawBoard();
-        panel.frame.setResizable(false);
-        panel.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        repaint();
         Toolkit tk = Toolkit.getDefaultToolkit();
 
     }
 
     //draws board, each item
-    public void drawBoard () {
+    public void paint(Graphics pen) {
+
         Location location = allLocations.getLocation(player);
+        pen.setColor(location.background.backgroundColor);
+        this.setBackground(Color.BLACK);
         player.draw(pen);
         inventory.draw(pen);
         hungerBar.draw(pen, player);
         healthBar.draw(pen, player);
-        location.drawLocation(panel, pen);
+        location.drawLocation(this, pen);
+
     }
     //clears board
-    public void clearBoard() {
+    /*public void clearBoard() {
         panel.clear();
-    }
+    }*/
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -129,8 +130,8 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
         else if (e.getKeyCode() == KeyEvent.VK_E) {
             player.eatItem(inventory);
         }
-        else if (e.getKeyCode() == KeyEvent.VK_S) {
-            shop.displayShop(panel.frame);
+        /*else if (e.getKeyCode() == KeyEvent.VK_S) {
+            shop.displayShop(this.frame);
             t.stop();
             panel.panel.setVisible(false);
         }
@@ -138,7 +139,7 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
             shop.hideShop(panel.frame);
             panel.panel.setVisible(true);
             t.start();
-        }
+        }*/
         else {
             velX = 0;
             velY = 0;
@@ -167,7 +168,6 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        clearBoard();
         player.up(velY);
         player.right(velX);
         if (gameTick % 2000 == 0 && player.getHunger() != 0) {
@@ -182,7 +182,7 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
         if (player.getHealth() == 0) {
             System.out.println("GAME OVER");
         }
-        drawBoard();
+        repaint();
         gameTick++;
     }
 

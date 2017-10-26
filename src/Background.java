@@ -4,6 +4,7 @@ import sun.print.BackgroundLookupListener;
  * Created by Sawyer Cole on 5/4/2017.
  */
 import java.awt.*;
+import javax.swing.*;
 import java.util.ArrayList;
 /**
  * Background.java
@@ -35,8 +36,9 @@ public class Background {
     }
 
     //draws background
-    public void drawBackground(DrawingPanel panel, Graphics pen) {
-        panel.setBackground(backgroundColor);
+    public void drawBackground(JPanel panel, Graphics pen) {
+        pen.setColor(backgroundColor);
+        panel.paintComponents(pen);
         //drawTree(pen, amountOfTrees, 15, 15);
     }
     //forest preset

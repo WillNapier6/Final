@@ -1,6 +1,7 @@
 /**
  * Created by Sawyer Cole on 5/3/2017.
  */
+import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 /**
@@ -36,7 +37,7 @@ public class Location {
     }
 
     //instructions for drawing the location, draws the background and each item stored in this location
-    public void drawLocation(DrawingPanel panel, Graphics pen) {
+    public void drawLocation(JPanel panel, Graphics pen) {
         background.drawBackground(panel, pen);
         writeLocation(pen);
         for (Item item: items) {

@@ -19,12 +19,13 @@ import java.applet.*;
 public class FinalMain extends JFrame{
     public static void main(String[] args) {
         //creates a new game board
-        GameBoard board = new GameBoard();
+        new FinalMain();
 
     }
 
     public FinalMain() {
         add(new GameBoard());
+        setSize(1000, 1000);
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Lousy Adventures of Will Napkin");
