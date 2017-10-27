@@ -32,6 +32,8 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
     //Input input = new Input(); //allows option of enabling console comands
     private AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
     private Shop shop = new Shop();
+    private Toolkit tk = Toolkit.getDefaultToolkit();
+    Graphics pen = this.getGraphics();
 
 
     //constructor, starts  the timer and implements key listener.
@@ -39,15 +41,16 @@ public class GameBoard extends JPanel implements ActionListener, KeyListener{
         addKeyListener(this);
         setVisible(true);
         setOpaque(true);
+        //pen.setColor(Color.BLUE);
         setBackground(Color.BLUE);
         t.start();
         repaint();
-        Toolkit tk = Toolkit.getDefaultToolkit();
+
 
     }
 
     //draws board, each item
-    public void paint(Graphics pen) {
+    public void paint() {
 
         Location location = allLocations.getLocation(player);
         pen.setColor(location.background.backgroundColor);
