@@ -8,7 +8,7 @@
  *
  * @version 5/9/17
  */
-//A variable that efficiently stores the location of an object on the screen.
+//Variable for efficiently storing the location of an item on the game board.
 public class Coordinates {
     //fields
     int x;

@@ -1,17 +1,14 @@
 /**
  * Created by Sawyer Cole on 5/4/2017.
  */
-import com.sun.xml.internal.ws.api.server.Adapter;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Scanner;
+
 /**
  * GameBoard.java
  * Assignment: Final Project
@@ -19,49 +16,56 @@ import java.util.Scanner;
  *
  * @version 5/9/17
  */
-//The main class in which everything happens. Creates a bunch of game objects which all make the game function.
-public class GameBoard extends JFrame implements ActionListener, KeyListener{
+//Is the main object that contains all the information and records player input and draws the game board accordingly.
+public class GameBoard extends JPanel implements ActionListener, KeyListener{
 
     //fields
-    DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
-    Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
-    Player player = new Player(); //creates the player
-    Inventory inventory = new Inventory(5); //begging inventory at bottom of the screen
-    HungerBar hungerBar = new HungerBar(); //Hunger Display
-    HealthBar healthBar = new HealthBar(); //Health Display
-    Timer t = new Timer(2, this); //Initializes game timer
-    int gameTick = 0; //records game time
-    int velX, velY; //velocity of the player
-    Input input = new Input(); //allows option of enabling console comands
-    AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
-    Shop shop = new Shop();
+    //private DrawingPanel panel = new DrawingPanel(1000, 1000); //creates JPanel
+    //private Graphics pen = panel.getGraphics(); //creates graphics object pen, used to draw on drawing panel
+    private Player player = new Player(); //creates the player
+    private Inventory inventory = new Inventory(5); //begging inventory at bottom of the screen
+    private HungerBar hungerBar = new HungerBar(); //Hunger Display
+    private HealthBar healthBar = new HealthBar(); //Health Display
+    private Timer t = new Timer(2, this); //Initializes game timer
+    private int gameTick = 0; //records game time
+    private int velX, velY; //velocity of the player
+    //Input input = new Input(); //allows option of enabling console comands
+    private AllLocations allLocations = new AllLocations(); //An array list of the locations on the game board
+    private Shop shop = new Shop();
+    private Toolkit tk = Toolkit.getDefaultToolkit();
+    Graphics pen = this.getGraphics();
 
 
     //constructor, starts  the timer and implements key listener.
     public GameBoard () {
-        panel.frame.addKeyListener(this);
-        panel.frame.setTitle("The Lousy Adventures Of Will Napkin");
+        addKeyListener(this);
+        setVisible(true);
+        setOpaque(true);
+        //pen.setColor(Color.BLUE);
+        setBackground(Color.BLUE);
         t.start();
-        drawBoard();
-        panel.frame.setResizable(false);
-        panel.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        Toolkit tk = Toolkit.getDefaultToolkit();
+        repaint();
+
 
     }
 
     //draws board, each item
-    public void drawBoard () {
+    public void paint() {
+
         Location location = allLocations.getLocation(player);
+        pen.setColor(location.background.backgroundColor);
+        this.setBackground(Color.BLACK);
         player.draw(pen);
         inventory.draw(pen);
         hungerBar.draw(pen, player);
         healthBar.draw(pen, player);
-        location.drawLocation(panel, pen);
+        location.drawLocation(this, pen);
+
     }
     //clears board
-    public void clearBoard() {
+    /*public void clearBoard() {
         panel.clear();
-    }
+    }*/
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -129,8 +133,8 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         else if (e.getKeyCode() == KeyEvent.VK_E) {
             player.eatItem(inventory);
         }
-        else if (e.getKeyCode() == KeyEvent.VK_S) {
-            shop.displayShop(panel.frame);
+        /*else if (e.getKeyCode() == KeyEvent.VK_S) {
+            shop.displayShop(this.frame);
             t.stop();
             panel.panel.setVisible(false);
         }
@@ -138,7 +142,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
             shop.hideShop(panel.frame);
             panel.panel.setVisible(true);
             t.start();
-        }
+        }*/
         else {
             velX = 0;
             velY = 0;
@@ -167,7 +171,6 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        clearBoard();
         player.up(velY);
         player.right(velX);
         if (gameTick % 2000 == 0 && player.getHunger() != 0) {
@@ -182,7 +185,7 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
         if (player.getHealth() == 0) {
             System.out.println("GAME OVER");
         }
-        drawBoard();
+        repaint();
         gameTick++;
     }
 
