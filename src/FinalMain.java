@@ -11,7 +11,7 @@ import java.applet.*;
  * FinalMain.java
  * Assignment: Final Project
  * Purpose: Through this project I apply the skills that I have learned throughout the year and create an original and unique project
- *
+ *.lll
  * @version 5/9/17
  */
 //The main class. Contains a main method which creates a game board.

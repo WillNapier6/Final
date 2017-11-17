@@ -128,8 +128,11 @@ public class Player {
         if (x <= 1 && x >= -1) {
             panelY = x;
         }
-        else {
-            System.out.println("You cant go there");
+        else if (x >= 1){
+            System.out.println("cant go right");
+        }
+        else if (x <= -1){
+            System.out.println("cant go left");
         }
     }
     public void setPanelX(int x) {

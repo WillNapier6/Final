@@ -72,17 +72,17 @@ public class GameBoard extends JFrame implements ActionListener, KeyListener{
     public void keyPressed(KeyEvent e) {
         boolean shopDisplayed = false;
         if(e.getKeyCode() == KeyEvent.VK_UP) {
-            velY = 2;
+            velY = 8;
         }
         else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-            velY = -2;
+            velY = -8;
         }
         else if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            velX = 2;
+            velX = 8;
 
         }
         else if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-            velX = -2;
+            velX = -8;
 
         }
         else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
