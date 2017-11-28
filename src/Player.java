@@ -112,13 +112,15 @@ public class Player {
         location.items.add(selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() - 1));
         selectedSlot.itemHolding.remove(selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() -1));
     }
-    //removes item from the given inventory and adds it's nourishment value to the player's hunger
+    //removes item from the given inventory and adds it's nourishment value to the player's hunger only if the player isn't already full
     public void eatItem (Inventory inventory) {
-        InventorySlot selectedSlot = inventory.inventory[inventory.getSelectedSlot()];
-        Item item = selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() -1);
-        if (item.isEdible) {
-            addHunger(item.nourishment);
-            selectedSlot.itemHolding.remove(item);
+        if(getHunger() != 10) {
+            InventorySlot selectedSlot = inventory.inventory[inventory.getSelectedSlot()];
+            Item item = selectedSlot.itemHolding.get(selectedSlot.itemHolding.size() - 1);
+            if (item.isEdible) {
+                addHunger(item.nourishment);
+                selectedSlot.itemHolding.remove(item);
+            }
         }
     }
 
